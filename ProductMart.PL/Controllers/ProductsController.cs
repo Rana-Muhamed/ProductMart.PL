@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProductCatalog.BLL.Interfaces;
 using ProductCatalog.DAL.Models;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProductCatalog.PL.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class ProductsController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

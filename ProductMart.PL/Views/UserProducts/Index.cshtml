@@ -1,22 +1,11 @@
-﻿
-@model IEnumerable<ProductsViewModel>
+﻿@model IEnumerable<ProductsViewModel>
 @{
-    ViewData["Title"] = "Products";
+    ViewData["Title"] = "Index";
 }
-
-@if (TempData["Message"] is not null)
-{
-    <div class="alert alert-primary mt-3">
-        @TempData["Message"];
-    </div>
-}
-
-
 
 <h1>All Products</h1>
 <br />
 <br />
-<a asp-action="Create" class=" btn btn-primary">Create New Product</a>
 <div class="row justify-content-center align-items-center mt-5">
     <form asp-action="Index" class="row col-8 offset-1">
         <div class="col-8">
@@ -36,9 +25,8 @@
                 <td>@Html.DisplayNameFor(P => P.Name)</td>
                 <td>@Html.DisplayNameFor(P => P.CreationDate)</td>
                 <td>@Html.DisplayNameFor(P => P.StartDate)</td>
+                <td>@Html.DisplayNameFor(P => P.Price)</td>
                 <td>Details</td>
-                <td>Update</td>
-                <td>Delete</td>
 
             </tr>
         </thead>
@@ -49,16 +37,9 @@
                     <td>@products.Name</td>
                     <td>@products.CreationDate</td>
                     <td>@products.StartDate</td>
-                <td>
-                        <a asp-action="Details" asp-route-id="@products.Id" class=" btn btn-warning"><i class="fas fa-eye"></i> Details</a>
-
-                    </td>
+                    <td>@products.Price</td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@products.Id" class=" btn btn-success"><i class="fas fa-edit"></i> Update</a>
-
-                    </td>
-                    <td>
-                        <a asp-action="Delete" asp-route-id="@products.Id" class=" btn btn-danger">   <i class="fas fa-trash"></i> Delete</a>
+                        <a asp-action="Details" asp-route-id="@products.Id" class=" btn btn-warning" ><i class="fas fa-eye"></i> Details</a>
 
                     </td>
                 </tr>
@@ -73,5 +54,3 @@ else
 
     </div>
 }
-
-

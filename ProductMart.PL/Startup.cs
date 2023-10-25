@@ -40,8 +40,7 @@ namespace ProductMart.PL
                     Configuration.GetConnectionString("SecurityConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddIdentity<ApplicationUser,IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
