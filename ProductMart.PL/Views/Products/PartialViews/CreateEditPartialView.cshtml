@@ -1,0 +1,36 @@
+﻿@model ProductsViewModel
+@inject IUnitOfWork unitOfWork
+@{
+    var category = new SelectList(await unitOfWork.CategoryRepository.GetAll(), "Id", "Name");
+}
+    <div class=" form-group">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class=" form-group">
+        <label class="col-form-label" asp-for="CreationDate"></label>
+        <input asp-for="CreationDate" class="form-control" />
+        <span asp-validation-for="CreationDate" class="text-danger"></span>
+    </div>
+    <div class=" form-group">
+        <label class="col-form-label" asp-for="StartDate"></label>
+        <input asp-for="StartDate" class="form-control" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+    <div class=" form-group">
+        <label class="col-form-label" asp-for="Duration"></label>
+        <input asp-for="Duration" class="form-control" />
+        <span asp-validation-for="Duration" class="text-danger"></span>
+    </div>
+    <div class=" form-group">
+        <label class="col-form-label" asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+        <div class=" form-group">
+        <label class="col-form-label" asp-for="CategoriesId"></label>
+         <select class=" form-control" asp-for="CategoriesId" asp-items="@category">
+        <option value="@null">--Select Category--</option>
+         </select>
+    </div>
