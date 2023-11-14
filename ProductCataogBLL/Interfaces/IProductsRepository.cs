@@ -10,7 +10,7 @@ namespace ProductCatalog.BLL.Interfaces
     public interface IProductsRepository:IGenericRepository<Products>
     {
         IQueryable<Products> SearchProductsByCategory(int catId);
-        IQueryable<Products> CompareDuration(IEnumerable<Products> pr);
+        IQueryable<Products> CompareDuration(IQueryable<Products> pr);
 
     }
 }
